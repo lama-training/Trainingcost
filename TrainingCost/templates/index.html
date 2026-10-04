@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة التدريب</title>
+   <style>
+.hero img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+}
+</style>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            background: #f5f5f5;
+        }
+
+        .navbar {
+            height: 85px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 45px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .login-button {
+            background: #176b45;
+            color: white !important;
+            padding: 12px 22px;
+            border-radius: 6px;
+        }
+
+        .search {
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+<div class="logo">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="شعار الدفاع المدني">
+</div>
+
+        <nav class="nav-links">
+            <a href="/">الرئيسية</a>
+<a href="/courses" style="color: black;">الأقسام</a>
+<a href="/courses">المقررات التدريبية</a>
+<a href="#statistics">الإحصائيات</a>
+<a href="/news">الأخبار والفعاليات</a>
+<a href="/training-cost">حسب التكلفة</a>
+<a href="#about">عن المنصة</a>
+<span class="voice-search" title="البحث الصوتي">🎤</span>
+            <a href="#" class="login-button">تسجيل الدخول</a>
+        </nav>
+    </header>
+<section class="hero">
+    <img src="{{ url_for('static', filename='hero.jpg.jpg') }}" alt="الصورة الرئيسية">
+</section>
+<section class="categories">
+<h2 style="color:black; font-size:32px; font-weight:bold;">الأقسام</h2>
+    <div class="category-boxes" style="display:grid; grid-template-columns:repeat(3,1fr); gap:25px; width:90%; max-width:1200px; margin:40px auto;">
+
+        <div class="category-box">
+         <img src="/static/sector_people_sticker.png" alt="منسوبي القطاع" style="width:100px; height:100px; object-fit:contain;">
+            <h3>منسوبي القطاع</h3>
+           <a href="/sector-details" class="details-btn">التفاصيل</a>
+
+        </div>
+
+        <div class="category-box" style="background:white; border:2px solid #ddd; border-radius:15px; padding:30px; text-align:center; min-height:180px; box-shadow:0 4px 12px rgba(0,0,0,0.12);">
+          <div class="category-icon">
+    <svg width="60" height="60" viewBox="0 0 64 64" fill="#006a4e">
+        <path d="M4 24L32 8L60 24V28H4V24ZM10 32H16V52H10V32ZM22 32H28V52H22V32ZM36 32H42V52H36V32ZM48 32H54V52H48V32ZM4 56H60V60H4V56Z"/>
+    </svg>
+</div>
+            <h3>منسوبي القطاع الحكومي</h3>
+            <a href="/government-details" class="details-btn">التفاصيل</a>
+
+        </div>
+          <div class="category-box" style="background:white; border:2px solid #ddd; border-radius:15px; padding:30px; text-align:center; min-height:180px; box-shadow:0 4px 12px rgba(0,0,0,0.12);">
+            <div class="category-icon">
+    <svg width="60" height="60" viewBox="0 0 64 64" fill="#006a4e">
+        <circle cx="32" cy="18" r="9"/>
+        <circle cx="14" cy="25" r="7"/>
+        <circle cx="50" cy="25" r="7"/>
+        <path d="M18 54c0-12 6-19 14-19s14 7 14 19H18Z"/>
+        <path d="M2 54c0-9 5-15 12-15 4 0 7 2 9 5-4 3-6 6-7 10H2Z"/>
+        <path d="M62 54c0-9-5-15-12-15-4 0-7 2-9 5 4 3 6 6 7 10h14Z"/>
+    </svg>
+</div>
+            <h3>المواطنون</h3>
+            <a href="/citizens-details" class="details-btn">التفاصيل</a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+function showDetails(id) {
+    const details = document.getElementById(id);
+    details.style.display =
+        details.style.display === "block" ? "none" : "block";
+}
+</script>
+
+<script>
+function showDetails(id) {
+    const details = document.getElementById(id);
+
+    if (details.style.display === "block") {
+        details.style.display = "none";
+    } else {
+        details.style.display = "block";
+    }
+}
+</script>
+    </div>
+
+</section>
+</section>
+
+
+</section>
+<script>
+    const mic = document.querySelector('.voice-search');
+
+    mic.addEventListener('click', function () {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        if (!SpeechRecognition) {
+            alert('البحث الصوتي غير مدعوم في هذا المتصفح');
+            return;
+        }
+
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'ar-SA';
+
+        recognition.start();
+
+        recognition.onresult = function (event) {
+            const text = event.results[0][0].transcript;
+            alert('سمعت: ' + text);
+        };
+    });
+</script>
+    <!-- المقررات التدريبية -->
+<section class="courses-section">
+    <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+    <h2 style="color:black; font-size:32px; font-weight:bold;">المقررات التدريبية</h2>
+    <p>اكتشفي مجموعة متنوعة من المقررات التدريبية المعتمدة</p>
+
+    <div class="courses-container">
+
+        <div class="course-box">
+            <img src="{{ url_for('static', filename='WhatsApp Image 2026-09-11 at 8.59.40 PM.jpeg') }}" alt="مخاطر الأمطار والسيول">
+            <h3>مخاطر الأمطار والسيول</h3>
+            <p>التوعية بمخاطر الأمطار والسيول وطرق الوقاية.</p>
+            <a href="/details" class="details-btn">التفاصيل</a>
+        </div>
+
+        <div class="course-box">
+            <img src="{{ url_for('static', filename='WhatsApp Image 2026-09-11 at 8.59.37 PM.jpeg') }}" alt="تحليل المخاطر المشتركة">
+            <h3>تحليل مخاطر مشتركة</h3>
+            <p>التعرف على أساليب تحليل وتقييم المخاطر.</p>
+            <a href="/risk-analysis" class="details-btn">التفاصيل</a>
+        </div>
+
+        <div class="course-box">
+            <img src="{{ url_for('static', filename='WhatsApp Image 2026-09-11 at 8.59.34 PM.jpeg') }}" alt="أعمال السلامة بالحج">
+            <h3>أعمال السلامة بالحج</h3>
+            <p>تعزيز مهارات السلامة خلال موسم الحج.</p>
+            <a href="/hajj-safety" class="details-btn">التفاصيل</a>
+        </div>
+<div class="course-box">
+    <img src="{{ url_for('static', filename='human-supprt.jpeg') }}" alt="الإسناد البشري للدفاع المدني">
+    <h3>الإسناد البشري للدفاع المدني</h3>
+    <a href="/human-support" class="details-btn">التفاصيل</a>
+</div>
+
+
+<div class="course-box">
+    <img src="{{ url_for('static', filename='WhatsApp Image 2026-09-15 at 2.33.02 PM.jpeg') }}" alt="الحتمية لرتبتي عريف وكيل رقيب">
+    <h3>الحتمية لرتبتي عريف وكيل نقيب</h3>
+    <p>برنامج تدريبي للتأهيل والترقية للرتب المستهدفة.</p>
+    <a href="/details-promotion" class="details-btn">التفاصيل</a>
+</div>
+
+<div class="course-box">
+    <img src="{{ url_for('static', filename='WhatsApp Image 2026-09-15 at 2.33.06 PM.jpeg') }}" alt="المراجعة الداخلية">
+    <h3>التعريف بميثاق ودليل سياسات وإجراءات الإدارة العامة للمراجعة الداخلية</h3>
+    <p>التعريف بالميثاق والدليل والسياسات والإجراءات الخاصة بالمراجعة الداخلية.</p>
+    <a href="/internal-audit" class="details-btn">التفاصيل</a>
+</div>
+    </div>
+</section>
+  <!-- خدمات المنصة -->
+<section style="margin-top:80px; padding:40px 20px; text-align:center;">
+
+    <h2 style="color:#198754; font-size:32px; margin-bottom:10px;">
+        خدمات المنصة
+    </h2>
+
+    <p style="color:#555; margin-bottom:35px;">
+        خدمات رقمية تساعد على تطوير التدريب وإدارة المتدربين
+    </p>
+
+    <div style="display:flex; justify-content:center; gap:25px; flex-wrap:wrap;">
+
+        <!-- الكلاس الافتراضي -->
+        <div style="width:280px; background:white; border:1px solid #ddd; border-radius:18px; padding:25px; box-shadow:0 4px 12px rgba(0,0,0,0.10);">
+            <div style="font-size:42px; margin-bottom:15px;">💻</div>
+            <h3 style="color:#198754;">الكلاس الافتراضي</h3>
+            <p style="line-height:1.8; color:#555;">
+                بيئة تدريب افتراضية تتيح للمتدربين حضور الدورات والتفاعل مع المدرب عن بُعد.
+            </p>
+            <a href="#" style="display:inline-block; margin-top:15px; padding:10px 25px; background:#198754; color:white; text-decoration:none; border-radius:8px;">
+                التفاصيل
+            </a>
+        </div>
+
+        <!-- نظام إدارة المتدربين -->
+        <div style="width:280px; background:white; border:1px solid #ddd; border-radius:18px; padding:25px; box-shadow:0 4px 12px rgba(0,0,0,0.10);">
+            <div style="width:55px; height:55px; line-height:55px; margin:0 auto 15px; background:#198754; color:white; border-radius:50%; font-size:28px;">
+                👥
+            </div>
+            <h3 style="color:#198754;">نظام إدارة المتدربين</h3>
+            <p style="line-height:1.8; color:#555;">
+                إدارة بيانات المتدربين ومتابعة الدورات والحضور والنتائج التدريبية.
+            </p>
+            <a href="#" style="display:inline-block; margin-top:15px; padding:10px 25px; background:#198754; color:white; text-decoration:none; border-radius:8px;">
+                التفاصيل
+            </a>
+        </div>
+
+        <!-- خطط الإخلاء -->
+        <div style="width:280px; background:white; border:1px solid #ddd; border-radius:18px; padding:25px; box-shadow:0 4px 12px rgba(0,0,0,0.10);">
+            <div style="font-size:42px; margin-bottom:15px;">🚨</div>
+            <h3 style="color:#198754;">خطط الإخلاء للمدرسة</h3>
+            <p style="line-height:1.8; color:#555;">
+                عرض وتنظيم خطط الإخلاء والتوعية بإجراءات السلامة في حالات الطوارئ.
+            </p>
+            <a href="#" style="display:inline-block; margin-top:15px; padding:10px 25px; background:#198754; color:white; text-decoration:none; border-radius:8px;">
+                التفاصيل
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- الإحصائيات -->
+
+<section class="statistics" style="margin-top: 150px;">
+    <h2 style="text-align: center; font-size: 36px; margin-bottom: 10px;">الإحصائيات</h2>
+    <p style="text-align: center; margin-top: 0;">أبرز أرقام منصة التدريب</p>
+
+     <div class="statistics-container" style="display: flex; flex-direction: row; gap: 25px; justify-content: center; width: 90%; margin: 50px auto;">
+
+        <div class="stat-box">
+            <div class="stat-icon">📊</div>
+            <h3>70%</h3>
+            <p>الدورات المنفذة عن بُعد</p>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-icon">📚</div>
+            <h3>12</h3>
+            <p>البرامج التدريبية</p>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-icon">👥</div>
+            <h3>25,000+</h3>
+            <p>عدد المتدربين</p>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-icon">📄</div>
+            <h3>150+</h3>
+            <p>عدد الدورات</p>
+        </div>
+
+    </div>
+</section>
+<section class="cost-section">
+    <h2>حسب التكلفة</h2>
+    <p>احسب التكلفة التقديرية للتدريب بسهولة</p>
+
+    <a href="/training-cost" class="cost-button">
+        ابدأ الحساب
+    </a>
+</section>
+<footer class="footer">
+
+    <div class="social">
+        <a href="#">𝕏</a>
+        <a href="#">f</a>
+    </div>
+
+    <div class="footer-links">
+        <a href="#">سياسة الخصوصية</a>
+        <a href="#">الشروط والأحكام</a>
+        <a href="#">دليل المتدرب</a>
+        <a href="#">الأسئلة الشائعة</a>
+        <a href="#">تواصل معنا</a>
+    </div>
+
+    <p>جميع الحقوق محفوظة للمديرية العامة للدفاع المدني ©</p>
+
+</footer>
+
+
+</body>
+</html>
+<style>
+.statistics-container {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+}
+
+.statistics .stat-box {
+    width: 200px !important;
+    min-height: 120px !important;
+    background: white !important;
+    border: 1px solid #ddd !important;
+    border-radius: 15px !important;
+    padding: 20px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10) !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+}
+</style>

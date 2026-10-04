@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حسب التكلفة</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<section class="training-cost-page" style="background: #006a4e !important;">
+
+    <h1>حسب التكلفة</h1>
+    <p>احسب التكلفة التقديرية للتدريب بسهولة</p>
+
+    <div class="cost-calculator">
+
+        <label>عدد الدورات التدريبية</label>
+        <input type="number" id="courses" value="1" min="1">
+
+        <label>عدد المتدربين</label>
+        <input type="number" id="trainees" value="1" min="1">
+
+        <label>تكلفة المتدرب الواحد (ريال)</label>
+        <input type="number" id="cost" value="500" min="0">
+
+        <button onclick="calculateCost()">احسب التكلفة</button>
+
+        <div class="result">
+            <h2>إجمالي التكلفة</h2>
+            <strong id="total">0 ريال</strong>
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+function calculateCost() {
+    let courses = Number(document.getElementById("courses").value);
+    let trainees = Number(document.getElementById("trainees").value);
+    let cost = Number(document.getElementById("cost").value);
+
+    let total = courses * trainees * cost;
+
+    document.getElementById("total").textContent =
+        total.toLocaleString("ar-SA") + " ريال";
+}
+</script>
+
+</body>
+</html>

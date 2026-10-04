@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>اختبار دورة الإسناد البشري</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 30px;
+        }
+
+        .quiz {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .question {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .question.active {
+            display: block;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0;
+            cursor: pointer;
+        }
+
+        button {
+            background: #087f3f;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 17px;
+            margin-top: 20px;
+        }
+
+        #result {
+            margin-top: 25px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="quiz">
+
+    <h1>اختبار دورة الإسناد البشري</h1>
+
+    <!-- السؤال 1 -->
+    <div class="question active" id="q1">
+        <h2>السؤال 1</h2>
+        <p>ما المقصود بالإسناد البشري؟</p>
+
+        <label>
+            <input type="radio" name="q1" value="1">
+            دعم ومساندة فرق العمل أثناء الطوارئ
+        </label>
+
+        <label>
+            <input type="radio" name="q1" value="0">
+            إدارة المركبات فقط
+        </label>
+
+        <label>
+            <input type="radio" name="q1" value="0">
+            الأعمال المكتبية فقط
+        </label>
+
+        <button onclick="nextQuestion(1)">التالي</button>
+    </div>
+
+
+    <!-- السؤال 2 -->
+    <div class="question" id="q2">
+        <h2>السؤال 2</h2>
+        <p>من أهم مهام الإسناد البشري؟</p>
+
+        <label>
+            <input type="radio" name="q2" value="1">
+            التنسيق والعمل ضمن فرق الطوارئ
+        </label>
+
+        <label>
+            <input type="radio" name="q2" value="0">
+            إيقاف عمليات الإنقاذ
+        </label>
+
+        <label>
+            <input type="radio" name="q2" value="0">
+            تجاهل التعليمات
+        </label>
+
+        <button onclick="nextQuestion(2)">التالي</button>
+    </div>
+
+
+    <!-- السؤال 3 -->
+    <div class="question" id="q3">
+        <h2>السؤال 3</h2>
+        <p>ماذا يجب أن يفعل فريق الإسناد أثناء الحالات الطارئة؟</p>
+
+        <label>
+            <input type="radio" name="q3" value="1">
+            الاستجابة الفعالة واتباع الخطط
+        </label>
+
+        <label>
+            <input type="radio" name="q3" value="0">
+            العمل بشكل عشوائي
+        </label>
+
+        <label>
+            <input type="radio" name="q3" value="0">
+            مغادرة موقع الحادث
+        </label>
+
+        <button onclick="nextQuestion(3)">التالي</button>
+    </div>
+
+
+    <!-- السؤال 4 -->
+    <div class="question" id="q4">
+        <h2>السؤال 4</h2>
+        <p>ما أهمية التواصل أثناء العمل الطارئ؟</p>
+
+        <label>
+            <input type="radio" name="q4" value="1">
+            يساعد على التنسيق وسرعة الاستجابة
+        </label>
+
+        <label>
+            <input type="radio" name="q4" value="0">
+            يسبب تأخير العمل
+        </label>
+
+        <label>
+            <input type="radio" name="q4" value="0">
+            لا توجد له أهمية
+        </label>
+
+        <button onclick="nextQuestion(4)">التالي</button>
+    </div>
+
+
+    <!-- السؤال 5 -->
+    <div class="question" id="q5">
+        <h2>السؤال 5</h2>
+        <p>ما التصرف الصحيح أثناء تنفيذ خطة الإسناد؟</p>
+
+        <label>
+            <input type="radio" name="q5" value="1">
+            الالتزام بالتعليمات والإجراءات المعتمدة
+        </label>
+
+        <label>
+            <input type="radio" name="q5" value="0">
+            تجاهل المسؤولين
+        </label>
+
+        <label>
+            <input type="radio" name="q5" value="0">
+            تغيير الخطة دون تنسيق
+        </label>
+
+        <button onclick="finishQuiz()">إنهاء الاختبار</button>
+    </div>
+
+    <div id="result"></div>
+
+</div>
+
+
+<script>
+
+let score = 0;
+
+function nextQuestion(number) {
+
+    let answer = document.querySelector(
+        'input[name="q' + number + '"]:checked'
+    );
+
+    if (!answer) {
+        alert("اختاري إجابة أولاً");
+        return;
+    }
+
+    if (answer.value === "1") {
+        score++;
+    }
+
+    document.getElementById("q" + number).classList.remove("active");
+
+    document.getElementById("q" + (number + 1)).classList.add("active");
+}
+
+
+function finishQuiz() {
+
+    let answer = document.querySelector(
+        'input[name="q5"]:checked'
+    );
+
+    if (!answer) {
+        alert("اختاري إجابة أولاً");
+        return;
+    }
+
+    if (answer.value === "1") {
+        score++;
+    }
+
+    document.getElementById("q5").classList.remove("active");
+
+    document.getElementById("result").innerHTML =
+        "نتيجتك: " + score + " من 5";
+}
+
+</script>
+
+</body>
+</html>

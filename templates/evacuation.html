@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خطط الإخلاء للمدارس</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <section style="padding:40px; text-align:center;">
+
+        <h1>خطط الإخلاء للمدارس</h1>
+
+        <p>
+            خطط وإرشادات منظمة تساعد على إخلاء المدرسة بأمان وسرعة عند حدوث الطوارئ.
+        </p>
+
+        <h2 style="margin-top:40px;">🎥 فيديو توعوي عن الإخلاء</h2>
+
+        <div style="margin:25px auto; max-width:800px;">
+            <video controls style="width:100%; border-radius:15px;">
+                <source src="{{ url_for('static', filename='videos/WhatsApp Video 2026-09-26 at 11.11.39 PM.mp4') }}" type="video/mp4">
+                متصفحك لا يدعم تشغيل الفيديو.
+            </video>
+        </div>
+
+        <h2>🚨 إجراءات الإخلاء</h2>
+
+        <div style="margin:25px auto; max-width:800px; text-align:right; line-height:2;">
+
+            <p>🚪 التوجه إلى أقرب مخرج طوارئ.</p>
+
+            <p>👥 الالتزام بتعليمات مسؤول الإخلاء.</p>
+
+            <p>🚶 التحرك بهدوء وعدم التدافع.</p>
+
+            <p>📍 التوجه إلى نقطة التجمع المحددة.</p>
+
+            <p>✅ التأكد من سلامة جميع الطلاب والعاملين.</p>
+
+        </div>
+
+        <h2>📍 الهدف من الخطة</h2>
+
+        <p>
+            رفع مستوى الاستعداد للطوارئ وتعريف الطلاب والعاملين
+            بمخارج الطوارئ ونقاط التجمع وإجراءات الإخلاء.
+        </p>
+
+    </section>
+
+</body>
+</html>

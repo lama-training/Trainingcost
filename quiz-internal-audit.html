@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>اختبار ميثاق ودليل</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .question {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px #ddd;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 12px 0;
+            cursor: pointer;
+        }
+
+        button {
+            display: block;
+            margin: 25px auto;
+            background: #198754;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #result {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+
+    <h1>اختبار ميثاق ودليل سياسة الإجراءات</h1>
+
+    <div class="question">
+        <h3>1. ما الهدف الأساسي من البرنامج؟</h3>
+
+        <label>
+            <input type="radio" name="q1" value="1">
+            التعرف على ميثاق المراجعة الداخلية وأهدافه
+        </label>
+
+        <label>
+            <input type="radio" name="q1" value="0">
+            تعلم استخدام برامج التصميم
+        </label>
+
+        <label>
+            <input type="radio" name="q1" value="0">
+            إعداد التقارير المالية فقط
+        </label>
+    </div>
+
+
+    <div class="question">
+        <h3>2. ماذا يوضح ميثاق المراجعة الداخلية؟</h3>
+
+        <label>
+            <input type="radio" name="q2" value="1">
+            الأدوار والمسؤوليات والإجراءات المتعلقة بالمراجعة الداخلية
+        </label>
+
+        <label>
+            <input type="radio" name="q2" value="0">
+            جدول الإجازات
+        </label>
+
+        <label>
+            <input type="radio" name="q2" value="0">
+            أسعار المعدات
+        </label>
+    </div>
+
+
+    <div class="question">
+        <h3>3. ما الذي يساعد الالتزام بالإجراءات المعتمدة على تحقيقه؟</h3>
+
+        <label>
+            <input type="radio" name="q3" value="1">
+            دعم الالتزام والحوكمة
+        </label>
+
+        <label>
+            <input type="radio" name="q3" value="0">
+            زيادة عدد الإجازات
+        </label>
+
+        <label>
+            <input type="radio" name="q3" value="0">
+            إلغاء المسؤوليات
+        </label>
+    </div>
+
+
+    <div class="question">
+        <h3>4. من الأمور التي يتعرف عليها المتدرب في البرنامج:</h3>
+
+        <label>
+            <input type="radio" name="q4" value="1">
+            السياسات والإجراءات المنظمة لأعمال المراجعة الداخلية
+        </label>
+
+        <label>
+            <input type="radio" name="q4" value="0">
+            طرق الطبخ
+        </label>
+
+        <label>
+            <input type="radio" name="q4" value="0">
+            تصميم الألعاب
+        </label>
+    </div>
+
+
+    <div class="question">
+        <h3>5. ما أهمية الالتزام بالضوابط والإجراءات المعتمدة؟</h3>
+
+        <label>
+            <input type="radio" name="q5" value="1">
+            تعزيز الالتزام وتحسين أعمال المراجعة الداخلية
+        </label>
+
+        <label>
+            <input type="radio" name="q5" value="0">
+            إلغاء السياسات
+        </label>
+
+        <label>
+            <input type="radio" name="q5" value="0">
+            تقليل المسؤوليات
+        </label>
+    </div>
+
+
+    <button onclick="finishQuiz()">إنهاء الاختبار</button>
+
+    <div id="result"></div>
+
+</div>
+
+
+<script>
+
+function finishQuiz() {
+
+    let score = 0;
+
+    for (let i = 1; i <= 5; i++) {
+
+        const answer = document.querySelector(
+            'input[name="q' + i + '"]:checked'
+        );
+
+        if (answer && answer.value === "1") {
+            score++;
+        }
+    }
+
+    document.getElementById("result").innerHTML =
+        "نتيجتك: " + score + " من 5";
+}
+
+</script>
+
+</body>
+</html>

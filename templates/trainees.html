@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام إدارة المتدربين</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<section class="courses-section">
+    <h1>نظام إدارة المتدربين</h1>
+
+    <p style="text-align:center;">
+        متابعة بيانات المتدربين والدورات التدريبية
+    </p>
+
+    <div class="stats-container">
+
+        <div class="stat-box">
+            <h2>70</h2>
+            <p>إجمالي المتدربين</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>6</h2>
+            <p>الدورات التدريبية</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>90%</h2>
+            <p>نسبة الحضور</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>85%</h2>
+            <p>متوسط الإنجاز</p>
+        </div>
+
+    </div>
+
+    <div style="text-align:center; margin:30px;">
+        <input type="text" placeholder="🔍 البحث عن متدرب"
+               style="padding:15px; width:60%; border-radius:8px; border:1px solid #ccc;">
+    </div>
+
+    <table style="width:90%; margin:auto; text-align:center; border-collapse:collapse;">
+        <tr>
+            <th>المتدرب</th>
+            <th>الدورة</th>
+            <th>الحضور</th>
+            <th>الإنجاز</th>
+            <th>الاختبار</th>
+            <th>الحالة</th>
+        </tr>
+
+        <tr>
+            <td>أحمد محمد</td>
+            <td>مخاطر الأمطار والسيول</td>
+            <td>95%</td>
+            <td>90%</td>
+            <td>88%</td>
+            <td>نشط</td>
+        </tr>
+
+        <tr>
+            <td>محمد علي</td>
+            <td>أعمال السلامة بالحج</td>
+            <td>100%</td>
+            <td>100%</td>
+            <td>92%</td>
+            <td>مكتمل</td>
+        </tr>
+
+        <tr>
+            <td>خالد عبدالله</td>
+            <td>الإسناد البشري</td>
+            <td>85%</td>
+            <td>75%</td>
+            <td>80%</td>
+            <td>مستمر</td>
+        </tr>
+        <tr>
+    <td>سارة محمد</td>
+    <td>الدورة التدريبية</td>
+    <td>90%</td>
+    <td>نشط</td>
+</tr>
+
+<tr>
+    <td>فهد سعد</td>
+    <td>الدورة التدريبية</td>
+    <td>85%</td>
+    <td>نشط</td>
+</tr>
+    </table>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>حساب تكلفة التدريب</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        .header {
+            background: #1f2937;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0 0 10px;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 17px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #1f2937;
+
+        .calculator {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+        }
+
+        .input-box {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #1f2937;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #1f2937;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #374151;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: #eef2f7;
+            border-radius: 10px;
+        }
+
+        .result p {
+            font-size: 18px;
+            margin: 12px 0;
+            font-weight: bold;
+        }
+
+        .total {
+            margin-top: 20px !important;
+            padding-top: 15px;
+            border-top: 2px solid #ccc;
+            font-size: 24px !important;
+        }
+
+        .note {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .note {
+    color: #000;
+    font-size: 14px;
+}
+
+.statistics-container {
+    display: grid !important;
+grid-template-columns: repeat(3, 1fr) !important;
+    gap: 25px !important;
+    width: 90% !important;
+    max-width: 1200px !important;
+    margin: 40px auto !important;
+}
+
+.stat-box {
+    width: auto !important;
+}
+.statistics-container {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 25px !important;
+    width: 90% !important;
+    max-width: 1200px !important;
+    margin: 40px auto !important;
+}
+
+.stat-box {
+    width: 100% !important;
+}
+</style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>منصة التدريب</h1>
+        <p>نظام حساب تكاليف التدريب عن بُعد</p>
+    </div>
+
+    <div class="container">
+
+        <h2 class="title">حساب تكلفة التدريب</h2>
+
+        <div class="calculator">
+
+            <div class="stat-box" style="background:white; border:2px solid #e5e5e5; border-radius:15px; padding:30px 20px; min-height:180px; box-shadow:0 4px 12px rgba(0,0,0,0.08); text-align:center;">
+                <label for="courses">
+                    عدد الدورات التدريبية عن بُعد
+                </label>
+
+                <input
+                    type="number"
+                    id="courses"
+                    min="0"
+                    placeholder="مثال: 5">
+            </div>
+
+
+            <div class="input-box">
+                <label for="trainees">
+                    عدد المتدربين المستفيدين
+                </label>
+
+                <input
+                    type="number"
+                    id="trainees"
+                    min="0"
+                    placeholder="مثال: 100">
+            </div>
+
+
+            <div class="input-box">
+                <label for="inPersonCost">
+                    تكلفة التدريب الحضوري للمتدرب الواحد (ريال)
+                </label>
+
+                <input
+                    type="number"
+                    id="inPersonCost"
+                    min="0"
+                    placeholder="مثال: 500">
+            </div>
+
+
+            <button onclick="calculateCost()">
+                احسب التكلفة
+            </button>
+
+
+            <div class="result">
+
+                <p>
+                    عدد الدورات:
+                    <span id="coursesResult">0</span>
+                </p>
+
+                <p>
+                    عدد المتدربين:
+                    <span id="traineesResult">0</span>
+                </p>
+
+                <p>
+                    التكلفة التقديرية للتدريب الحضوري:
+                    <span id="costResult">0</span>
+                    ريال
+                </p>
+
+                <p class="total">
+                    إجمالي التكلفة:
+                    <span id="totalResult">0</span>
+                    ريال
+                </p>
+
+            </div>
+
+            <div class="note">
+                يتم احتساب التكلفة التقديرية بناءً على عدد المتدربين
+                وتكلفة التدريب الحضوري للمتدرب الواحد.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+        <!-- المقررات التدريبية -->
+<section style="margin:80px 0 60px; text-align:center;">
+    <h2 style="font-size:36px; margin-bottom:15px;">
+        المقررات التدريبية
+    </h2>
+
+    <p style="font-size:18px; margin-bottom:35px;">
+        اكتشفي مجموعة متنوعة من المقررات التدريبية المعتمدة
+    </p>
+
+    <div style="display:flex; justify-content:center; gap:25px; flex-wrap:wrap;">
+
+        <div style="width:280px; min-height:230px; background:white; border:1px solid #e5e5e5; border-radius:18px; padding:30px; box-shadow:0 4px 15px rgba(0,0,0,0.08);">
+            <div style="font-size:45px;">🌧️</div>
+            <h3>مخاطر الأمطار والسيول</h3>
+            <p>التوعية بمخاطر الأمطار والسيول وطرق الوقاية.</p>
+            <button>التفاصيل</button>
+        </div>
+
+        <div style="width:280px; min-height:230px; background:white; border:1px solid #e5e5e5; border-radius:18px; padding:30px; box-shadow:0 4px 15px rgba(0,0,0,0.08);">
+            <div style="font-size:45px;">📊</div>
+            <h3>تحليل مخاطر مشتركة</h3>
+            <p>التعرف على أساليب تحليل وتقييم المخاطر.</p>
+            <button>التفاصيل</button>
+        </div>
+
+        <div style="width:280px; min-height:230px; background:white; border:1px solid #e5e5e5; border-radius:18px; padding:30px; box-shadow:0 4px 15px rgba(0,0,0,0.08);">
+            <div style="font-size:45px;">🕋</div>
+            <h3>أعمال السلامة بالحج</h3>
+            <p>تعزيز مهارات السلامة خلال موسم الحج.</p>
+            <button>التفاصيل</button>
+        </div>
+
+    </div>
+</section>
+
+        function calculateCost() {
+
+            let courses =
+                Number(document.getElementById("courses").value);
+
+            let trainees =
+                Number(document.getElementById("trainees").value);
+
+            let inPersonCost =
+                Number(document.getElementById("inPersonCost").value);
+
+
+            let total =
+                trainees * inPersonCost;
+
+
+            document.getElementById("coursesResult").innerText =
+                courses;
+
+            document.getElementById("traineesResult").innerText =
+                trainees;
+
+            document.getElementById("costResult").innerText =
+                total.toLocaleString();
+
+            document.getElementById("totalResult").innerText =
+                total.toLocaleString();
+        }
+
+    </script>
+<!-- الإحصائيات -->
+<section class="statistics">
+    <h2>الإحصائيات</h2>
+    <p>أبرز أرقام منصة التدريب</p>
+
+<div class="statistics-container">
+        <div class="stat-box">
+            <div class="stat-icon">👥</div>
+            <h3>25,000</h3>
+            <p>عدد المتدربين</p>
+        </div>
+
+        <div class="stat-box">
+            <div class="stat-icon">📋</div>
+            <h3>150</h3>
+            <p>عدد الدورات</p>
+        </div>
+
+    </div>
+</section>
+<footer class="footer">
+    <div class="footer-social">
+        <a href="#">𝕏</a>
+        <a href="#">f</a>
+    </div>
+
+    <div class="footer-links">
+        <a href="#">سياسة الخصوصية</a>
+        <a href="#">الشروط والأحكام</a>
+        <a href="#">دليل المتدرب</a>
+        <a href="#">الأسئلة الشائعة</a>
+        <a href="#">تواصل معنا</a>
+    </div>
+
+    <p>جميع الحقوق محفوظة للمديرية العامة للدفاع المدني ©</p>
+</footer>
+</body>
+
+</html>

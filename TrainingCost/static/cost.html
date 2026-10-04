@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>حساب التكلفة</title>
+</head>
+
+<body>
+
+<h1>حساب تكلفة التدريب</h1>
+
+<h2>بيانات التدريب</h2>
+
+<label>عدد الدورات التي تُنفذ عن بُعد:</label>
+<input type="number" id="courses" min="0">
+
+<br><br>
+
+<label>عدد المتدربين المستفيدين:</label>
+<input type="number" id="trainees" min="0">
+
+<br><br>
+
+<label>تكاليف الدورات :</label>
+<input type="number" id="cost" min="0">
+
+<br><br>
+
+<button onclick="calculate()">حساب المجموع</button>
+
+<h2 id="result"></h2>
+
+<script>
+function calculate() {
+    let cost = Number(document.getElementById("cost").value);
+
+    document.getElementById("result").innerText =
+        "المجموع النهائي لتكلفة الدورات: " + cost + " ريال";
+}
+</script>
+
+<br>
+
+<a href="/">العودة للرئيسية</a>
+
+
+

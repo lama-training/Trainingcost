@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار مخاطر الأمطار والسيول</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        .quiz-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.10);
+        }
+
+        h1 {
+            text-align: center;
+            color: #006b3c;
+            margin-bottom: 30px;
+        }
+
+        .question {
+            display: none;
+        }
+
+        .question.active {
+            display: block;
+        }
+
+        .question-number {
+            color: #006b3c;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .question h2 {
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        label {
+            display: block;
+            background: #f5f5f5;
+            margin: 10px 0;
+            padding: 14px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        label:hover {
+            background: #e8f3ed;
+        }
+
+        input {
+            margin-left: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background: #006b3c;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #00552f;
+        }
+
+        #result {
+            display: none;
+            text-align: center;
+            font-size: 24px;
+            color: #006b3c;
+            font-weight: bold;
+            padding: 30px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+<div class="quiz-container">
+
+    <h1>اختبار مخاطر الأمطار والسيول</h1>
+
+
+    <!-- السؤال 1 -->
+
+    <div class="question active">
+
+        <div class="question-number">
+            السؤال 1 من 5
+        </div>
+
+        <h2>
+            عند هطول أمطار غزيرة وبدء تجمع المياه في منطقة منخفضة،
+            ما التصرف الأكثر أمانًا؟
+        </h2>
+
+        <label>
+            <input type="radio" name="q1" value="1">
+            1. الانتظار داخل المنطقة حتى ينخفض مستوى المياه.
+        </label>
+
+        <label>
+            <input type="radio" name="q1" value="2">
+            2. الابتعاد عن المنطقة والتوجه إلى مكان مرتفع وآمن.
+        </label>
+
+        <label>
+            <input type="radio" name="q1" value="3">
+            3. الاقتراب من تجمع المياه لمعرفة عمقه.
+        </label>
+
+        <label>
+            <input type="radio" name="q1" value="4">
+            4. عبور المنطقة بسرعة قبل ارتفاع المياه.
+        </label>
+
+        <button onclick="nextQuestion()">التالي</button>
+
+    </div>
+
+
+    <!-- السؤال 2 -->
+
+    <div class="question">
+
+        <div class="question-number">
+            السؤال 2 من 5
+        </div>
+
+        <h2>
+            لماذا يُنصح بعدم محاولة عبور مجرى السيل بالمركبة؟
+        </h2>
+
+        <label>
+            <input type="radio" name="q2" value="1">
+            1. لأن الطريق قد يكون مزدحمًا فقط.
+        </label>
+
+        <label>
+            <input type="radio" name="q2" value="2">
+            2. لأن قوة المياه وعمقها قد يؤديان إلى فقدان السيطرة على المركبة وجرفها.
+        </label>
+
+        <label>
+            <input type="radio" name="q2" value="3">
+            3. لأن السيارة قد تستهلك وقودًا أكثر.
+        </label>
+
+        <label>
+            <input type="radio" name="q2" value="4">
+            4. لأن المطر قد يقلل سرعة السيارة.
+        </label>
+
+        <button onclick="nextQuestion()">التالي</button>
+
+    </div>
+
+
+    <!-- السؤال 3 -->
+
+    <div class="question">
+
+        <div class="question-number">
+            السؤال 3 من 5
+        </div>
+
+        <h2>
+            أي علامة قد تشير إلى وجود خطر محتمل من السيول؟
+        </h2>
+
+        <label>
+            <input type="radio" name="q3" value="1">
+            1. انخفاض سرعة الرياح فقط.
+        </label>
+
+        <label>
+            <input type="radio" name="q3" value="2">
+            2. ارتفاع منسوب المياه وتدفقها باتجاه المناطق المنخفضة.
+        </label>
+
+        <label>
+            <input type="radio" name="q3" value="3">
+            3. توقف حركة السيارات في شارع بعيد.
+        </label>
+
+        <label>
+            <input type="radio" name="q3" value="4">
+            4. انخفاض درجة الحرارة بشكل بسيط.
+        </label>
+
+        <button onclick="nextQuestion()">التالي</button>
+
+    </div>
+
+
+    <!-- السؤال 4 -->
+
+    <div class="question">
+
+        <div class="question-number">
+            السؤال 4 من 5
+        </div>
+
+        <h2>
+            ما الإجراء الأنسب عند وجود تحذير رسمي من السيول؟
+        </h2>
+
+        <label>
+            <input type="radio" name="q4" value="1">
+            1. الذهاب لمشاهدة السيول من مكان قريب.
+        </label>
+
+        <label>
+            <input type="radio" name="q4" value="2">
+            2. الالتزام بتعليمات الجهات المختصة والابتعاد عن المناطق الخطرة.
+        </label>
+
+        <label>
+            <input type="radio" name="q4" value="3">
+            3. محاولة تصوير مجرى السيل من داخله.
+        </label>
+
+        <label>
+            <input type="radio" name="q4" value="4">
+            4. استخدام الطرق التي غمرتها المياه إذا كانت المسافة أقصر.
+        </label>
+
+        <button onclick="nextQuestion()">التالي</button>
+
+    </div>
+
+
+    <!-- السؤال 5 -->
+
+    <div class="question">
+
+        <div class="question-number">
+            السؤال 5 من 5
+        </div>
+
+        <h2>
+            ما الخطر الرئيسي عند الاقتراب من مجاري الأودية أثناء الأمطار الغزيرة؟
+        </h2>
+
+        <label>
+            <input type="radio" name="q5" value="1">
+            1. زيادة الضوضاء في المكان.
+        </label>
+
+        <label>
+            <input type="radio" name="q5" value="2">
+            2. احتمال حدوث سيول مفاجئة وقوية قد تعرض الأشخاص والمركبات للخطر.
+        </label>
+
+        <label>
+            <input type="radio" name="q5" value="3">
+            3. انخفاض مستوى الرؤية فقط.
+        </label>
+
+        <label>
+            <input type="radio" name="q5" value="4">
+            4. زيادة سرعة الرياح فقط.
+        </label>
+
+        <button onclick="finishQuiz()">إنهاء الاختبار</button>
+
+    </div>
+
+
+    <div id="result"></div>
+
+</div>
+
+
+<script>
+
+    let currentQuestion = 0;
+
+    const questions = document.querySelectorAll(".question");
+
+
+    function nextQuestion() {
+
+        const current = questions[currentQuestion];
+
+        const selected = current.querySelector("input:checked");
+
+        if (!selected) {
+            alert("اختاري إجابة أولًا");
+            return;
+        }
+
+        current.classList.remove("active");
+
+        currentQuestion++;
+
+        questions[currentQuestion].classList.add("active");
+    }
+
+
+    function finishQuiz() {
+
+        const selected = questions[currentQuestion].querySelector("input:checked");
+
+        if (!selected) {
+            alert("اختاري إجابة أولًا");
+            return;
+        }
+
+        let score = 0;
+
+        for (let i = 1; i <= 5; i++) {
+
+            const answer = document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            );
+
+            if (answer && answer.value === "2") {
+                score++;
+            }
+        }
+
+        questions[currentQuestion].classList.remove("active");
+
+        const result = document.getElementById("result");
+
+        result.style.display = "block";
+
+        result.innerHTML =
+            "🎉 انتهى الاختبار<br><br>" +
+            "نتيجتك: " + score + " من 5";
+
+    }
+
+</script>
+
+</body>
+</html>

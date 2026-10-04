@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تفاصيل المقرر</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .course-details {
+            background: white;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            margin-top: 25px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        ul {
+            text-align: right;
+            line-height: 2;
+            font-size: 17px;
+        }
+
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="course-details">
+
+        <h1>مخاطر الأمطار والسيول</h1>
+
+        <h2>وصف المقرر</h2>
+        <p>
+            برنامج تدريبي للتوعية بمخاطر الأمطار والسيول
+            ورفع مستوى المعرفة والوعي وطرق التعامل معها.
+        </p>
+
+        <h2>الفئة المستهدفة</h2>
+        <p>
+            المستفيدون من البرامج التدريبية حسب الفئة والجهة.
+        </p>
+
+        <h2>أهداف المقرر</h2>
+        <ul>
+            <li>التوعية بمخاطر الأمطار والسيول.</li>
+            <li>التعرف على طرق الوقاية والسلامة.</li>
+            <li>رفع مستوى الاستعداد والتعامل مع المخاطر.</li>
+        </ul>
+
+        <h2>مدة المقرر</h2>
+        <p>تحدد حسب البرنامج التدريبي المعتمد.</p>
+
+        <button>التسجيل في المقرر</button>
+
+    </div>
+
+<!-- فيديو الدورة -->
+<div class="course-video" style="text-align: center; margin-top: 40px;">
+
+    <h2>فيديو الدورة</h2>
+
+    <video id="courseVideo"
+           width="700"
+           controls
+           controlsList="nodownload"
+           style="max-width: 100%; border-radius: 12px;">
+
+        <source src="{{ url_for('static', filename='videos/flood-risks.mp4') }}"
+                type="video/mp4">
+
+        المتصفح لا يدعم تشغيل الفيديو.
+    </video>
+
+    <p id="videoMessage" style="margin-top: 15px;">
+        يجب مشاهدة الفيديو كاملًا للوصول إلى الاختبار.
+    </p>
+
+</div>
+
+</body>
+</html>
